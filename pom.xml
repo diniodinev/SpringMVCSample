@@ -5,7 +5,7 @@
 	<artifactId>sample</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 
-	<name>PWC - DoorsCM</name>
+	<name>Spring MVC Sample</name>
 	<description>Sample Spring MVC Project</description>
 
 	<developers>
