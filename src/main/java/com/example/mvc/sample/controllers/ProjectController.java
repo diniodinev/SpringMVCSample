@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.example.mvc.samle.entities.data.Project;
+import com.example.mvc.samle.entities.data.Resource;
 import com.example.mvc.samle.entities.data.services.ProjectService;
 
 @Controller

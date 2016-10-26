@@ -21,7 +21,6 @@
 	
 	<div class="container">
 		<div class="row">
-		
 			<form action="<spring:url value="/project/add"/>" method="post" class="col-md-8 col-md-offset-2">
 			
 				<div class="form-group">
