@@ -42,7 +42,7 @@
 				<div class="form-group">
 					<label for="sponsor">Sponsor</label>
 					<input id="sponsor" type="text" 
-							class="form-control" name="sponsor"/>
+							class="form-control" name="sponsor"/> 
 				</div>
 			
 				<div class="form-group">
