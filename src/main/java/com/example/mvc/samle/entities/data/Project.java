@@ -35,6 +35,7 @@ public class Project {
 	}
 
 	public void setName(String name) {
+		System.out.println("Spring databinds the name");
 		this.name = name;
 	}
 
@@ -94,4 +95,12 @@ public class Project {
 		this.type = type;
 	}
 
+	@Override
+	public String toString() {
+		return "Project [projectId=" + projectId + ", name=" + name + ", description=" + description + ", sponsor="
+				+ sponsor + ", authorizedHours=" + authorizedHours + ", authorizedFunds=" + authorizedFunds + ", year="
+				+ year + ", special=" + special + ", type=" + type + "]";
+	}
+
+	
 }
