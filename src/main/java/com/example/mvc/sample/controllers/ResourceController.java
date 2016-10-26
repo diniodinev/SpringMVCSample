@@ -1,33 +1,40 @@
 package com.example.mvc.sample.controllers;
 
-import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.LinkedList;
 import java.util.List;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.example.mvc.samle.entities.data.Resource;
 
 @Controller
-@RequestMapping(value = "/resource")
+@RequestMapping("/resource")
 public class ResourceController {
 
-	@RequestMapping(value = "/add", method = RequestMethod.GET)
-	public String addResource(Model model) {
-		List<String> options = new ArrayList<>(Arrays.asList(new String[] { "First", "Second", "Thrid", "Fourth" }));
+	@RequestMapping("/add")
+	public String add(Model model) {
+		List<String> options = new LinkedList<>(
+				Arrays.asList(new String[] { "Material", "Other", "Staff", "Technical Equipment" }));
+
+		List<String> radios = new LinkedList<>(Arrays.asList(new String[] { "Hours", "Piece", "Tons" }));
+		model.addAttribute("radioOptions", radios);
+
+		List<String> checks = new LinkedList<>(
+				Arrays.asList(new String[] { "Lead Time", "Special Rate", "Requires Approval" }));
+		model.addAttribute("checkOptions", checks);
+
+		model.addAttribute("typeOptions", options);
 		model.addAttribute("resource", new Resource());
-		model.addAttribute("optionsType", options);
 		return "resource_add";
 	}
 
-	@RequestMapping(value = "/save", method = RequestMethod.POST)
-	public String saveResource(@ModelAttribute Resource resource) {
+	@RequestMapping("/save")
+	public String save(@ModelAttribute Resource resource) {
 		System.out.println(resource);
-		return "resource_add";
+		return "redirect:/resource/add";
 	}
-
 }

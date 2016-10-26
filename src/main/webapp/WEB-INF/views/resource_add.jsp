@@ -45,7 +45,7 @@
 
 				<div class="form-group">
 
-					<form:select path="type" items="${optionsType }" id="resource-type"
+					<form:select path="type" items="${typeOptions }" id="resource-type"
 						name="type" class="selectpicker" />
 				</div>
 
@@ -55,10 +55,19 @@
 				</div>
 
 				<div class="form-group">
-					<label for="unit">Unit of Measure</label> <input id="unit"
-						type="text" class="form-control" name="unitOfMeasure" />
+					<label for="unit">Unit of Measure</label>
+					<form:radiobuttons path="unitOfMeasure" items="${radioOptions}" />
 				</div>
 
+				<div class="form-group">
+					<label for="unit">Unit of Measure</label>
+					<form:checkboxes path="indicators" items="${checkOptions}" />
+				</div>
+
+				<div class="form-group">
+					<label for="unit">Unit of Measure</label>
+					<form:textarea path="notes" id="notes" rows="3" class="form-control" />
+				</div>
 				<button type="submit" class="btn btn-default">Submit</button>
 
 			</div>
