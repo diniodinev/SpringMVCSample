@@ -13,7 +13,6 @@ public class HomeController {
 	public String home(Model model) {
 		Project project = new Project();
 		project.setDescription("This is project sponsored by Nasa");
-		project.setSponsor("NASA");
 		project.setName("Simple Project 1");
 		
 		model.addAttribute("currentProject", project);
