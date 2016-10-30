@@ -9,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
@@ -24,27 +25,33 @@ public class ResourceController {
 		System.out.println("Invoce add method handler");
 		return "resource_add";
 	}
-	
+
 	@RequestMapping("/review")
 	public String review(@ModelAttribute Resource resource) {
 		System.out.println("Call review jsp");
 		return "resource_review";
 	}
 
+	@RequestMapping("/request")
+	@ResponseBody
+	public String request(@ModelAttribute Resource resource) {
+		return "The request has been approived.";
+	}
+
 	@RequestMapping("/save")
-	public String save(@ModelAttribute Resource resource,SessionStatus status) {
+	public String save(@ModelAttribute Resource resource, SessionStatus status) {
 		System.out.println("Invoke Save");
 		System.out.println(resource);
 		status.setComplete();
 		return "redirect:/resource/add";
 	}
-	
-	@RequestMapping(value="/find", method = RequestMethod.GET)
+
+	@RequestMapping(value = "/find", method = RequestMethod.GET)
 	public String find(@ModelAttribute Resource resource) {
 		System.out.println("Find in resource Controller.");
 		return "resource_add";
 	}
-	
+
 	@ModelAttribute(value = "resource")
 	public Resource resource() {
 		System.out.println("Add resource to the model");
