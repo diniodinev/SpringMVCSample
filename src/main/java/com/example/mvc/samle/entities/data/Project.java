@@ -1,6 +1,7 @@
 package com.example.mvc.samle.entities.data;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 public class Project {
 
@@ -17,6 +18,8 @@ public class Project {
 	private BigDecimal authorizedFunds;
 
 	private String year;
+	
+	private List<String> personOfContact;
 
 	private boolean special;
 
@@ -95,10 +98,19 @@ public class Project {
 		this.sponsor = sponsor;
 	}
 
+	public List<String> getPersonOfContact() {
+		return personOfContact;
+	}
+
+	public void setPersonOfContact(List<String> personOfContact) {
+		this.personOfContact = personOfContact;
+	}
+
 	@Override
 	public String toString() {
 		return "Project [projectId=" + projectId + ", name=" + name + ", description=" + description + ", sponsor="
 				+ sponsor + ", authorizedHours=" + authorizedHours + ", authorizedFunds=" + authorizedFunds + ", year="
-				+ year + ", special=" + special + ", type=" + type + "]";
+				+ year + ", personOfContact=" + personOfContact + ", special=" + special + ", type=" + type + "]";
 	}
+	
 }

@@ -81,6 +81,20 @@
 				</div>
 
 				<div class="form-group">
+					<label for="poc">POC</label>
+					<form:input path="personOfContact[0]" id="poc" cssClass="form-control" name="poc"/>
+				</div>
+				
+				<div class="form-group">
+					<label for="poc2">POC2</label>
+					<form:input path="personOfContact[1]" id="poc2" cssClass="form-control" name="poc2"/>
+				</div>
+				
+				<div class="form-group">
+					<label for="poc3">POC3</label>
+					<form:input path="personOfContact[2]" id="poc3" cssClass="form-control" name="poc3"/>
+				</div>
+				<div class="form-group">
 					<label for="special">Special</label>
 					<form:checkbox id="special" name="special" path="special" />
 				</div>
