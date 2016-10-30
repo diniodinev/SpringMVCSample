@@ -9,20 +9,45 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.bind.support.SessionStatus;
 
 import com.example.mvc.samle.entities.data.Resource;
 
 @Controller
 @RequestMapping("/resource")
+@SessionAttributes("resource")
 public class ResourceController {
 
 	@RequestMapping("/add")
 	public String add(Model model) {
+		System.out.println("Invoce add method handler");
 		return "resource_add";
 	}
+	
+	@RequestMapping("/review")
+	public String review(@ModelAttribute Resource resource) {
+		System.out.println("Call review jsp");
+		return "resource_review";
+	}
 
+	@RequestMapping("/save")
+	public String save(@ModelAttribute Resource resource,SessionStatus status) {
+		System.out.println("Invoke Save");
+		System.out.println(resource);
+		status.setComplete();
+		return "redirect:/resource/add";
+	}
+	
+	@RequestMapping(value="/find", method = RequestMethod.GET)
+	public String find(@ModelAttribute Resource resource) {
+		System.out.println("Find in resource Controller.");
+		return "resource_add";
+	}
+	
 	@ModelAttribute(value = "resource")
 	public Resource resource() {
+		System.out.println("Add resource to the model");
 		return new Resource();
 	}
 
@@ -41,14 +66,4 @@ public class ResourceController {
 		return new LinkedList<>(Arrays.asList(new String[] { "Lead Time", "Special Rate", "Requires Approval" }));
 	}
 
-	@RequestMapping("/save")
-	public String save(@ModelAttribute Resource resource) {
-		System.out.println(resource);
-		return "redirect:/resource/add";
-	}
-	
-	@RequestMapping(value="/find", method = RequestMethod.GET)
-	public String find(@ModelAttribute Resource resource) {
-		return "resource_add";
-	}
 }
