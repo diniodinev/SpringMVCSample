@@ -6,6 +6,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -23,6 +24,9 @@ public class ResourceController {
 	@RequestMapping("/add")
 	public String add(Model model) {
 		System.out.println("Invoce add method handler");
+		if(1==1){
+			throw new RuntimeException("Custom runtime");
+		}
 		return "resource_add";
 	}
 
@@ -38,6 +42,11 @@ public class ResourceController {
 		return "The request has been approived.";
 	}
 
+	@ExceptionHandler(Exception.class)
+	public String errorHandler() {
+		return "controller_error";
+		
+	}
 	@RequestMapping("/save")
 	public String save(@ModelAttribute Resource resource, SessionStatus status) {
 		System.out.println("Invoke Save");
