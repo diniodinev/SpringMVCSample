@@ -42,7 +42,7 @@ public class ResourceController {
 		return "The request has been approived.";
 	}
 
-	@ExceptionHandler(Exception.class)
+	@ExceptionHandler(NullPointerException.class)
 	public String errorHandler() {
 		return "controller_error";
 		
