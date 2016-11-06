@@ -28,7 +28,7 @@
 					<li><a href="<spring:url value="/resource/add"/>">Add</a></li>
 					<li><a href="<spring:url value="/resource/find"/>">Find</a></li>
 				</ul></li>
-
+			<div> ${currentTime }</div>
 		</ul>
 
 	</div>
