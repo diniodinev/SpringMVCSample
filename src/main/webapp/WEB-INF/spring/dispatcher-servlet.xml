@@ -20,6 +20,14 @@
 			<value>.jsp</value>
 		</property>
 	</bean>
+
+	<!-- Register other view resolver -->
+	<bean class="org.springframework.web.servlet.view.XmlViewResolver">
+		<property name="location" value="/WEB-INF/spring/view.xml" />
+		<!-- Put Xml Relover first in the chain -->
+		<property name="order" value="1" />
+	</bean>
+
 	<mvc:resources location="/resources/" mapping="/resources/**" />
 
 </beans>
