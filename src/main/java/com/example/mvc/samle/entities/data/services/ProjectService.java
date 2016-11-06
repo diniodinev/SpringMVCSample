@@ -42,5 +42,9 @@ public class ProjectService {
 		project.setDescription(description);
 		return project;
 	}
+	
+	public boolean addProject(final Project project) {
+		return projects.add(project);
+	}
 
 }

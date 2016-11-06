@@ -1,9 +1,11 @@
 package com.example.mvc.sample.controllers;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 import javax.validation.Valid;
 
+import org.apache.catalina.tribes.util.UUIDGenerator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,6 +16,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.example.mvc.samle.entities.data.Project;
 import com.example.mvc.samle.entities.data.services.ProjectService;
@@ -51,7 +54,11 @@ public class ProjectController {
 	}
 
 	@RequestMapping(value = "/add", method = RequestMethod.POST)
-	public String saveProject(@Valid @ModelAttribute("project") Project project, Errors errors) {
+	public String saveProject(@Valid @ModelAttribute("project") Project project, Errors errors,
+			RedirectAttributes attributes) {
+		project.setProjectId(new Random().nextLong());
+		service.addProject(project);
+		attributes.addAttribute("projectId", project.getProjectId().toString());
 		return "redirect:/home";
 	}
 
