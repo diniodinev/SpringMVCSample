@@ -52,13 +52,7 @@ public class ProjectController {
 
 	@RequestMapping(value = "/add", method = RequestMethod.POST)
 	public String saveProject(@Valid @ModelAttribute("project") Project project, Errors errors) {
-		if (!errors.hasErrors()) {
-			System.out.println("Everythink is ok wit the project name.");
-		} else {
-			System.out.println("Project name is invalid.");
-			return "project_add";
-		}
-		return "project_add";
+		return "redirect:/home";
 	}
 
 	@InitBinder
