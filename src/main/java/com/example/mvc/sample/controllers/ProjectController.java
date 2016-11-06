@@ -58,7 +58,7 @@ public class ProjectController {
 			RedirectAttributes attributes) {
 		project.setProjectId(new Random().nextLong());
 		service.addProject(project);
-		attributes.addAttribute("projectId", project.getProjectId().toString());
+		attributes.addFlashAttribute("project", project);
 		return "redirect:/home";
 	}
 
