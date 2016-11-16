@@ -13,7 +13,7 @@
 			<id>didinev</id>
 			<name>Dinyo Dinev</name>
 			<organization>Example Soft Bulgaria</organization>
-			<timezone>+2</timezone>
+			<timezone>+3</timezone>
 		</developer>
 	</developers>
 
@@ -157,4 +157,3 @@
 		</pluginManagement>
 	</build>
 </project>
-
