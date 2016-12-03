@@ -16,7 +16,8 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 <script src="<spring:url value="/resources/js/bootstrap-select.min.js"/>"></script>
 <script src="<spring:url value="/resources/js/resource.js"/>"></script>
-
+<script type="text/javascript">
+</script>
 </head>
 <body>
 
