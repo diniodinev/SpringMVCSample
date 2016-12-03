@@ -17,4 +17,9 @@ public class SampleController {
 		return "expresions";
 	}
 
+	@RequestMapping("/scriplet")
+	public String scriplet(Model model) {
+		return "scriplet";
+	}
+
 }
