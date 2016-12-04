@@ -21,5 +21,15 @@ public class SampleController {
 	public String scriplet(Model model) {
 		return "scriplet";
 	}
-
+	
+	@RequestMapping("/callJavaClass")
+	public String callJavaClass(Model model) {
+		return "callJavaClass";
+	}
+	
+	@RequestMapping("/buildInRequest")
+	public String buildInRequest(Model model) {
+		return "buildInRequest";
+	}
+	
 }
