@@ -32,4 +32,9 @@ public class SampleController {
 		return "buildInRequest";
 	}
 	
+	@RequestMapping("/mainPage")
+	public String mainPage(Model model) {
+		return "mainPage";
+	}
+	
 }
