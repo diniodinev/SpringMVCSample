@@ -57,9 +57,13 @@ public class ProjectController {
 	public String saveProject(@Valid @ModelAttribute("project") Project project, Errors errors,
 			RedirectAttributes attributes) {
 		project.setProjectId(new Random().nextLong());
+		if(errors.hasErrors()){
+			System.out.println("There is errors");
+		}
 		service.addProject(project);
-		attributes.addFlashAttribute("project", project);
-		return "redirect:/home";
+//		attributes.addFlashAttribute("project", project);
+//		return "redirect:/home";
+		return "project_add";
 	}
 
 	@InitBinder

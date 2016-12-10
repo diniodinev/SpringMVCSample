@@ -16,7 +16,7 @@ public class ProjectValidator implements Validator {
 	public void validate(Object target, Errors errors) {
 		Project project = (Project) target;
 		if (project.getName().length() < 5) {
-			errors.rejectValue("name", "errorCOde", "Project name too short.");
+			errors.rejectValue("name", "project.name.short");
 		}
 	}
 }

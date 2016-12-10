@@ -12,6 +12,8 @@
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
 <link rel="stylesheet"
 	href="<spring:url value="/resources/css/home.css"/>" type="text/css" />
+	<link rel="stylesheet"
+	href="<spring:url value="/resources/css/global.css"/>" type="text/css" />
 <link rel="stylesheet"
 	href="<spring:url value="/resources/css/bootstrap-select.min.css"/>"
 	type="text/css" />
@@ -31,12 +33,12 @@
 		<div class="row">
 			<spring:url value="/project/add" var="addUrl" />
 			<form:form action="${addUrl }" method="post" modelAttribute="project"
-				class="col-md-8 col-md-offset-2">
+				class="col-md-8 col-md-offset-2"  >
 
 				<div class="form-group">
 					<label for="project-name">Name</label>
-					<form:input path="name" id="project-name" cssClass="form-control" />
-					<form:errors path="name" />
+					<form:input path="name" id="project-name" cssClass="form-control" cssErrorClass="error"/>
+					<form:errors path="name"  />
 				</div>
 
 				<div class="form-group">
@@ -48,7 +50,7 @@
 				<div class="form-group">
 					<label for="sponsor">Sponsor name</label>
 					<form:input id="sponsor" cssClass="form-control"
-						path="sponsor.name" />
+						path="sponsor.name"/>
 				</div>
 
 				<div class="form-group">

@@ -37,4 +37,20 @@ public class SampleController {
 		return "mainPage";
 	}
 	
+	@RequestMapping("/studentsLogin")
+	public String studentsLogin(Model model) {
+		return "jsp/studentsLogin";
+	}
+	
+	@RequestMapping("/studentsWelcome")
+	public String studentsWelcome(Model model) {
+		return "jsp/studentsWelcome";
+	}
+	
+	@RequestMapping("/addItems")
+	public String addItems(Model model) {
+		return "jsp/addItems";
+	}
+	
+	
 }
