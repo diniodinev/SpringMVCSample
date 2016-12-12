@@ -37,12 +37,12 @@ public class ProjectService {
 		project.setAuthorizedHours(new BigDecimal("1000"));
 		project.setProjectId(1L);
 		project.setSpecial(false);
-		project.setType("multi");
+		project.setType(Arrays.asList(new String[] { "multi", "single", "one" }));
 		project.setYear("2015");
 		project.setDescription(description);
 		return project;
 	}
-	
+
 	public boolean addProject(final Project project) {
 		return projects.add(project);
 	}

@@ -55,6 +55,9 @@
 		<javadocs.skip>false</javadocs.skip>
 		<pmd.skip>false</pmd.skip>
 		<jxr.skip>false</jxr.skip>
+		
+		
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
 
 	<dependencies>

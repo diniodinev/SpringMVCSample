@@ -1,7 +1,8 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,7 +13,7 @@
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
 <link rel="stylesheet"
 	href="<spring:url value="/resources/css/home.css"/>" type="text/css" />
-	<link rel="stylesheet"
+<link rel="stylesheet"
 	href="<spring:url value="/resources/css/global.css"/>" type="text/css" />
 <link rel="stylesheet"
 	href="<spring:url value="/resources/css/bootstrap-select.min.css"/>"
@@ -33,24 +34,38 @@
 		<div class="row">
 			<spring:url value="/project/add" var="addUrl" />
 			<form:form action="${addUrl }" method="post" modelAttribute="project"
-				class="col-md-8 col-md-offset-2"  >
+				class="col-md-8 col-md-offset-2">
 
-				<div class="form-group">
-					<label for="project-name">Name</label>
-					<form:input path="name" id="project-name" cssClass="form-control" cssErrorClass="error"/>
-					<form:errors path="name"  />
+				<div class="form-group has-feedback">
+					<label class="control-label">Project Name</label>
+					<form:input path="name" id="project-name" cssClass="form-control"
+						placeholder="Project Name" aria-describedby="basic-addon1" />
+					<i class="glyphicon glyphicon-th-list form-control-feedback"></i>
 				</div>
+				<form:errors path="name" cssClass="alert alert-danger" />
+				<br>
 
-				<div class="form-group">
-					<label for="project_type">Type</label>
-					<form:select path="type" items="${types}">
+				<div class="form-group has-feedback">
+					<label class="control-label">City Name</label>
+
+					<form:select multiple="single" path="countries"
+						cssClass="selectpicker">
+						<c:forEach items="${inputCountries}" var="currentCountry">
+							<optgroup label="${currentCountry.name}">
+								<form:options items="${currentCountry.cities}"
+									itemValue="cityName" itemLabel="cityName" />
+							</optgroup>
+						</c:forEach>
 					</form:select>
 				</div>
+				<br>
+
+
 
 				<div class="form-group">
 					<label for="sponsor">Sponsor name</label>
 					<form:input id="sponsor" cssClass="form-control"
-						path="sponsor.name"/>
+						path="sponsor.name" />
 				</div>
 
 				<div class="form-group">
@@ -81,7 +96,7 @@
 				<div class="form-group">
 					<label for="project-name">Description</label>
 					<form:textarea cssClass="form-control" rows="3" path="description"></form:textarea>
-					<form:errors path="description" />
+					<form:errors path="description" cssClass="error" />
 				</div>
 
 				<div class="form-group">
@@ -101,11 +116,34 @@
 					<form:input path="personOfContact[2]" id="poc3"
 						cssClass="form-control" name="poc3" />
 				</div>
-				<div class="form-group">
-					<label for="special">Special</label>
-					<form:checkbox id="special" name="special" path="special" />
+
+				<div class="control-group">
+					<p class="pull-left">Payment Types</p>
+					<br>
+					<div class="controls span2">
+						<label class="custom-control custom-checkbox"> <c:forEach
+								items="${favLanguage}" var="language" varStatus="loop">
+								<c:if test="${loop.index % 3 == 0}">
+									<br>
+								</c:if>
+								<form:checkbox id="special" label="${language}"
+									value="${language}" path="favouriteLanguage"
+									name="${loop.index}" cssClass="custom-control-input" />
+							</c:forEach>
+						</label>
+					</div>
+
 				</div>
 
+				<div class="control-group">
+					<p class="pull-left">Favourite Phrases</p>
+					
+					<br>
+					
+					<form:input type="text" path="favouritePhrases[0]" placeholder="First phrase"/>
+					<form:input type="text" path="favouritePhrases[1]" placeholder="One more"/>
+					<form:input type="text" path="favouritePhrases[2]" placeholder="Finally"/>
+				</div>
 				<button type="submit" class="btn btn-default">Submit</button>
 
 			</form:form>

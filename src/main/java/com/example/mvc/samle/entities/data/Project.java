@@ -21,12 +21,42 @@ public class Project {
 	private BigDecimal authorizedFunds;
 
 	private String year;
-	
+
 	private List<String> personOfContact;
 
 	private boolean special;
 
-	private String type;
+	private List<String> type;
+
+	private List<String> favouriteLanguage;
+
+	private List<String> favouritePhrases;
+
+	private List<Country> countries;
+
+	public List<String> getFavouritePhrases() {
+		return favouritePhrases;
+	}
+
+	public void setFavouritePhrases(List<String> favouritePhrases) {
+		this.favouritePhrases = favouritePhrases;
+	}
+
+	public List<String> getFavouriteLanguage() {
+		return favouriteLanguage;
+	}
+
+	public void setFavouriteLanguage(List<String> favouriteLanguage) {
+		this.favouriteLanguage = favouriteLanguage;
+	}
+
+	public List<Country> getCountries() {
+		return countries;
+	}
+
+	public void setCountries(List<Country> countries) {
+		this.countries = countries;
+	}
 
 	public Long getProjectId() {
 		return projectId;
@@ -85,11 +115,11 @@ public class Project {
 		this.special = special;
 	}
 
-	public String getType() {
+	public List<String> getType() {
 		return type;
 	}
 
-	public void setType(String type) {
+	public void setType(List<String> type) {
 		this.type = type;
 	}
 
@@ -113,7 +143,8 @@ public class Project {
 	public String toString() {
 		return "Project [projectId=" + projectId + ", name=" + name + ", description=" + description + ", sponsor="
 				+ sponsor + ", authorizedHours=" + authorizedHours + ", authorizedFunds=" + authorizedFunds + ", year="
-				+ year + ", personOfContact=" + personOfContact + ", special=" + special + ", type=" + type + "]";
+				+ year + ", personOfContact=" + personOfContact + ", special=" + special + ", type=" + type
+				+ ", favouriteLanguage=" + favouriteLanguage + ", countries=" + countries + "]";
 	}
-	
+
 }
