@@ -1,12 +1,18 @@
 package com.example.mvc.samle.entities.data;
 
+import java.util.List;
+
 public class LoginForm {
 
 	private String userName;
 	private String firstName;
 	private String middleName;
 	private String lastName;
-
+	
+	private  List<String> organizations;
+	
+	private  List<Category> categories;	
+	
 	public LoginForm() {
 		super();
 	}
@@ -41,6 +47,22 @@ public class LoginForm {
 
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
+	}
+
+	public List<String> getOrganizations() {
+		return organizations;
+	}
+
+	public void setOrganizations(List<String> organizations) {
+		this.organizations = organizations;
+	}
+
+	public List<Category> getCategories() {
+		return categories;
+	}
+
+	public void setCategories(List<Category> categories) {
+		this.categories = categories;
 	}
 
 }

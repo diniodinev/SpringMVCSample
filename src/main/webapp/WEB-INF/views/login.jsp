@@ -29,7 +29,7 @@
 
 	<div class="container">
 		<div class="row">
-			<div class="panel panel-login">
+			<div class="col-lg-11 col-md-offset-4">
 				<div class="panel-body">
 					<div class="row">
 						<div class="col-lg-9">
@@ -37,26 +37,41 @@
 								<div class="row">
 									<div class="form-group col-xs-3">
 										<label for="project-name"><spring:message
-												code="loginForm.name" /></label>
+												code="loginForm.userName" /></label>
 										<form:input path="userName" cssClass="form-control" />
 									</div>
 								</div>
 								<div class="row">
 									<div class="form-group col-xs-3">
-										<label for="project-name">First Name</label>
+										<label for="project-name"><spring:message
+												code="loginForm.firstName"></spring:message></label>
 										<form:input path="firstName" cssClass="form-control" />
 									</div>
 								</div>
 								<div class="row">
 									<div class="form-group col-xs-3">
-										<label for="project-name">Middle Name</label>
+										<label for="project-name"><spring:message
+												code="loginForm.middleName" /></label>
 										<form:input path="middleName" cssClass="form-control" />
 									</div>
 								</div>
 								<div class="row">
 									<div class="form-group col-xs-3">
-										<label for="project-name">Last Name</label>
+										<label for="project-name"><spring:message
+												code="loginForm.lastName" /></label>
 										<form:input path="lastName" cssClass="form-control" />
+									</div>
+								</div>
+								
+								<div class="row">
+									<div class="form-group col-xs-3">
+										<label for="project-name"><spring:message
+												code="loginForm.lastName" /></label>
+												<spring:message code="login.select.default.option" var="defaultSelectName"/>
+										<form:select path="organizations" multiple="false" cssClass="form-control">
+											<form:option value="${defaultSelectName}>" ></form:option>
+											<form:options items="${companyNames}"></form:options>
+										</form:select>
 									</div>
 								</div>
 
