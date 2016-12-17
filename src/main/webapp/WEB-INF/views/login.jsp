@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -36,42 +37,58 @@
 							<form:form modelAttribute="loginForm">
 								<div class="row">
 									<div class="form-group col-xs-3">
-										<label for="project-name"><spring:message
+										<label for="userName"><spring:message
 												code="loginForm.userName" /></label>
 										<form:input path="userName" cssClass="form-control" />
 									</div>
 								</div>
 								<div class="row">
 									<div class="form-group col-xs-3">
-										<label for="project-name"><spring:message
+										<label for="firstName"><spring:message
 												code="loginForm.firstName"></spring:message></label>
 										<form:input path="firstName" cssClass="form-control" />
 									</div>
 								</div>
 								<div class="row">
 									<div class="form-group col-xs-3">
-										<label for="project-name"><spring:message
+										<label for="middleName"><spring:message
 												code="loginForm.middleName" /></label>
 										<form:input path="middleName" cssClass="form-control" />
 									</div>
 								</div>
 								<div class="row">
 									<div class="form-group col-xs-3">
-										<label for="project-name"><spring:message
+										<label for="lastName"><spring:message
 												code="loginForm.lastName" /></label>
 										<form:input path="lastName" cssClass="form-control" />
 									</div>
 								</div>
-								
+
+								<div class="row">
+									<div class="form-group col-xs-3">
+										<label for="organizations"><spring:message
+												code="loginForm.lastName" /></label>
+										<spring:message code="login.select.default.option"
+											var="defaultSelectName" />
+										<form:select path="organizations" multiple="false"
+											cssClass="form-control">
+											<form:option value="${defaultSelectName}"></form:option>
+											<form:options items="${companyNames}"></form:options>
+										</form:select>
+									</div>
+								</div>
+
 								<div class="row">
 									<div class="form-group col-xs-3">
 										<label for="project-name"><spring:message
-												code="loginForm.lastName" /></label>
-												<spring:message code="login.select.default.option" var="defaultSelectName"/>
-										<form:select path="organizations" multiple="false" cssClass="form-control">
-											<form:option value="${defaultSelectName}>" ></form:option>
-											<form:options items="${companyNames}"></form:options>
-										</form:select>
+												code="loginForm.categories"/> </label>
+										<div class="checkbox">
+											<c:forEach items="${categs}" var="category">
+												<label for="categories"> ${category.name} </label>
+												<form:checkboxes path="categories" items="${category.parts}"
+													class="checkbox" />
+											</c:forEach>
+										</div>
 									</div>
 								</div>
 

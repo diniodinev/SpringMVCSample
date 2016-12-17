@@ -32,7 +32,7 @@ public class LoginController {
 		categories.add(progLang);
 		categories.add(hobies);
 
-		model.addAttribute("categories", categories);
+		model.addAttribute("categs", categories);
 
 	}
 
