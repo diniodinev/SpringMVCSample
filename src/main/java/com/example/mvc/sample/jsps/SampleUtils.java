@@ -1,7 +1,7 @@
-package com.example.mvc.sample.utils;
+package com.example.mvc.sample.jsps;
 
 /**
- * Sample util class which role is to store common util methods.
+ * Sample util class which role is to store common methods.
  * @author Hannibal
  *
  */
