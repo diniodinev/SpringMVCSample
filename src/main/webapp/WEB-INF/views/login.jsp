@@ -1,27 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="UTF-8"%>
-<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ include file="_include/taglibs.jsp" %>
+<%@ include file="_include/js_scripts.jsp" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Project Manager</title>
-
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
-<link rel="stylesheet"
-	href="<spring:url value="/resources/css/home.css"/>" type="text/css" />
-<link rel="stylesheet"
-	href="<spring:url value="/resources/css/bootstrap-select.min.css"/>"
-	type="text/css" />
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-<script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-<script
-	src="<spring:url value="/resources/js/bootstrap-select.min.js"/>"></script>
 
 </head>
 <body>
@@ -37,30 +22,30 @@
 							<form:form modelAttribute="loginForm">
 								<div class="row">
 									<div class="form-group col-xs-3">
-										<label for="userName"><spring:message
+										<label for="userName" accesskey="u"><spring:message
 												code="loginForm.userName" /></label>
-										<form:input path="userName" cssClass="form-control" />
+										<form:input tabindex="1" path="userName" cssClass="form-control" />
 									</div>
 								</div>
 								<div class="row">
 									<div class="form-group col-xs-3">
 										<label for="firstName"><spring:message
 												code="loginForm.firstName"></spring:message></label>
-										<form:input path="firstName" cssClass="form-control" />
+										<form:input path="firstName" cssClass="form-control" tabindex="2"/>
 									</div>
 								</div>
 								<div class="row">
 									<div class="form-group col-xs-3">
 										<label for="middleName"><spring:message
 												code="loginForm.middleName" /></label>
-										<form:input path="middleName" cssClass="form-control" />
+										<form:input path="middleName" cssClass="form-control" tabindex="3"/>
 									</div>
 								</div>
 								<div class="row">
 									<div class="form-group col-xs-3">
 										<label for="lastName"><spring:message
 												code="loginForm.lastName" /></label>
-										<form:input path="lastName" cssClass="form-control" />
+										<form:input path="lastName" cssClass="form-control" tabindex="4" />
 									</div>
 								</div>
 
@@ -72,23 +57,23 @@
 											var="defaultSelectName" />
 										<form:select path="organizations" multiple="false"
 											cssClass="form-control">
-											<form:option value="${defaultSelectName}"></form:option>
-											<form:options items="${companyNames}"></form:options>
+											<form:option value="${defaultSelectName}" tabindex="5"></form:option>
+											<form:options items="${companyNames}" tabindex="6"></form:options>
 										</form:select>
 									</div>
 								</div>
 
 								<div class="row">
 									<div class="form-group col-xs-3">
-										<label for="project-name"><spring:message
-												code="loginForm.categories"/> </label>
-										<div class="checkbox">
-											<c:forEach items="${categs}" var="category">
-												<label for="categories"> ${category.name} </label>
-												<form:checkboxes path="categories" items="${category.parts}"
-													class="checkbox" />
-											</c:forEach>
-										</div>
+										<fieldset for="categories" >
+											<spring:message code="loginForm.categories" />
+											<div class="checkbox">
+												<c:forEach items="${categories}" var="category" varStatus="status">
+													<label for="categories"> ${category.name} </label>
+														<form:checkboxes items="${category.parts}" path="categories" class="checkbox" />
+												</c:forEach>
+											</div>
+											</fieldset>
 									</div>
 								</div>
 
@@ -114,4 +99,6 @@
 		</div>
 	</div>
 </body>
+
+
 </html>

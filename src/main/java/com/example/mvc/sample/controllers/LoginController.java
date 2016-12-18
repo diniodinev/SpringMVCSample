@@ -10,8 +10,9 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import com.example.mvc.samle.entities.data.Category;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.example.mvc.samle.entities.data.Category;
 import com.example.mvc.samle.entities.data.LoginForm;
 
 @Controller
@@ -32,7 +33,7 @@ public class LoginController {
 		categories.add(progLang);
 		categories.add(hobies);
 
-		model.addAttribute("categs", categories);
+		model.addAttribute("categories", categories);
 
 	}
 
@@ -42,10 +43,16 @@ public class LoginController {
 		return "login";
 	}
 
-	@RequestMapping(value = "/login", method = RequestMethod.POST)
-	public String loginPost(@ModelAttribute(value = "loginForm") LoginForm loginForm, BindingResult result) {
+	@RequestMapping(value = "/confirmLogin", method = RequestMethod.GET)
+	public String confirmLogin(@ModelAttribute(value = "loginForm") LoginForm loginForm, BindingResult result) {
+		return "confirmLogin";
+	}
 
-		return "redirect:confirmlogin";
+	@RequestMapping(value = "/login", method = RequestMethod.POST)
+	public String loginPost(@ModelAttribute(value = "loginForm") LoginForm loginForm, BindingResult result,
+			final RedirectAttributes redirectAttributes	) {
+		redirectAttributes.addFlashAttribute("loginForm", loginForm);
+		return "redirect:confirmLogin";
 	}
 
 }
