@@ -1,4 +1,4 @@
-package com.example.mvc.sample.jsps;
+package com.example.mvc.sample.utils;
 
 public class SampleUtils {
 
