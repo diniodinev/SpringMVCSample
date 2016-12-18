@@ -22,30 +22,30 @@
 							<form:form modelAttribute="loginForm">
 								<div class="row">
 									<div class="form-group col-xs-3">
-										<label for="userName"><spring:message
+										<label for="userName" accesskey="u"><spring:message
 												code="loginForm.userName" /></label>
-										<form:input path="userName" cssClass="form-control" />
+										<form:input tabindex="1" path="userName" cssClass="form-control" />
 									</div>
 								</div>
 								<div class="row">
 									<div class="form-group col-xs-3">
 										<label for="firstName"><spring:message
 												code="loginForm.firstName"></spring:message></label>
-										<form:input path="firstName" cssClass="form-control" />
+										<form:input path="firstName" cssClass="form-control" tabindex="2"/>
 									</div>
 								</div>
 								<div class="row">
 									<div class="form-group col-xs-3">
 										<label for="middleName"><spring:message
 												code="loginForm.middleName" /></label>
-										<form:input path="middleName" cssClass="form-control" />
+										<form:input path="middleName" cssClass="form-control" tabindex="3"/>
 									</div>
 								</div>
 								<div class="row">
 									<div class="form-group col-xs-3">
 										<label for="lastName"><spring:message
 												code="loginForm.lastName" /></label>
-										<form:input path="lastName" cssClass="form-control" />
+										<form:input path="lastName" cssClass="form-control" tabindex="4" />
 									</div>
 								</div>
 
@@ -57,8 +57,8 @@
 											var="defaultSelectName" />
 										<form:select path="organizations" multiple="false"
 											cssClass="form-control">
-											<form:option value="${defaultSelectName}"></form:option>
-											<form:options items="${companyNames}"></form:options>
+											<form:option value="${defaultSelectName}" tabindex="5"></form:option>
+											<form:options items="${companyNames}" tabindex="6"></form:options>
 										</form:select>
 									</div>
 								</div>
