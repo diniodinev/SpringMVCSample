@@ -1,4 +1,4 @@
-package com.example.mvc.sample.jsps;
+package com.example.mvc.sample.utils;
 
 /**
  * Sample util class which role is to store common methods.
