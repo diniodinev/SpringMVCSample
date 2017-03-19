@@ -11,14 +11,14 @@
 
 	<mvc:annotation-driven />
 
-<!-- 	<mvc:interceptors> -->
-<!-- 		<mvc:interceptor> -->
-<!-- 			<mvc:mapping path="/project/**" /> -->
-<!-- 			<bean class="com.example.mvc.samle.interceptors.RequestInterceptor"> -->
-<!-- 			</bean> -->
-<!-- 		</mvc:interceptor> -->
-<!-- 	</mvc:interceptors> -->
-	
+	<!-- <mvc:interceptors> -->
+	<!-- <mvc:interceptor> -->
+	<!-- <mvc:mapping path="/project/**" /> -->
+	<!-- <bean class="com.example.mvc.samle.interceptors.RequestInterceptor"> -->
+	<!-- </bean> -->
+	<!-- </mvc:interceptor> -->
+	<!-- </mvc:interceptors> -->
+
 	<bean id="resolver"
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix">
